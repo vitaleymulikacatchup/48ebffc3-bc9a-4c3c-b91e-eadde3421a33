@@ -26,7 +26,6 @@ const assetMap = [
 export default function Page() {
   const logoAsset = assetMap.find(a => a.id === "company-logo");
   const heroImage = assetMap.find(a => a.id === "hero-image");
-  const aboutImage = assetMap.find(a => a.id === "about-image");
   return (
     <ThemeProvider
       defaultButtonVariant="hover-magnetic"
@@ -36,7 +35,7 @@ export default function Page() {
       <div id="nav" data-section="nav" className={"scroll-mt-24 "}>
         <div className={"mx-auto px-4 md:px-6 "}>
           <NavbarLayoutFloatingOverlay
-            navItems={[{ name: "Home", id: "home" }, { name: "About", id: "about" }, { name: "Services", id: "services" }, { name: "Contact", id: "contact" }]}          
+            navItems={[{ name: "Home", id: "home" }, { name: "About", id: "about" }, { name: "Services", id: "services" }, { name: "Contact", id: "contact" }]}
             logoSrc={logoAsset?.url ?? "/public/images/placeholder.webp"}
             brandName="Tech Solutions"
           />
@@ -108,7 +107,7 @@ export default function Page() {
           <SocialProofOne
             title="Trusted By"
             description="Join the ranks of successful businesses using our solutions."
-            logos={["social-logo1", "social-logo2"].map(id =>
+            logos={["social-logo1", "social-logo2", "social-logo3", "social-logo4", "social-logo5", "social-logo6"].map(id =>
               assetMap.find(a => a.id === id)?.url ?? "/public/images/placeholder.webp")}
           />
         </div>

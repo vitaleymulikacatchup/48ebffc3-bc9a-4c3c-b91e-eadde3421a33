@@ -26,14 +26,15 @@ const assetMap = [
 export default function Page() {
   const logoAsset = assetMap.find(a => a.id === "company-logo");
   const heroImage = assetMap.find(a => a.id === "hero-image");
+  const contactImage = assetMap.find(a => a.id === "contact-image");
   return (
     <ThemeProvider
       defaultButtonVariant="hover-magnetic"
       defaultTextAnimation="background-highlight"
       borderRadius="sharp"
     >
-      <div id="nav" data-section="nav" className={"scroll-mt-24 "}>
-        <div className={"mx-auto px-4 md:px-6 "}>
+      <div id="nav" data-section="nav" className="scroll-mt-24">
+        <div className="mx-auto px-4 md:px-6">
           <NavbarLayoutFloatingOverlay
             navItems={[{ name: "Home", id: "home" }, { name: "About", id: "about" }, { name: "Services", id: "services" }, { name: "Contact", id: "contact" }]}
             logoSrc={logoAsset?.url ?? "/public/images/placeholder.webp"}
@@ -41,8 +42,8 @@ export default function Page() {
           />
         </div>
       </div>
-      <div id="hero" data-section="hero" className={"scroll-mt-24 "}>
-        <div className={"mx-auto px-4 md:px-6 "}>
+      <div id="hero" data-section="hero" className="scroll-mt-24">
+        <div className="mx-auto px-4 md:px-6">
           <HeroSplit
             title="Innovative IT Solutions"
             description="Empowering businesses with cutting-edge technology solutions."
@@ -51,8 +52,8 @@ export default function Page() {
           />
         </div>
       </div>
-      <div id="about" data-section="about" className={"scroll-mt-24 "}>
-        <div className={"mx-auto px-4 md:px-6 "}>
+      <div id="about" data-section="about" className="scroll-mt-24">
+        <div className="mx-auto px-4 md:px-6">
           <TextSplitAbout
             title="About Us"
             description={["We are a team dedicated to providing reliable IT support and services.", "Our mission is to deliver innovative technology solutions for all your business needs."]}
@@ -60,8 +61,8 @@ export default function Page() {
           />
         </div>
       </div>
-      <div id="feature" data-section="feature" className={"scroll-mt-24 "}>
-        <div className={"mx-auto px-4 md:px-6 "}>
+      <div id="feature" data-section="feature" className="scroll-mt-24">
+        <div className="mx-auto px-4 md:px-6">
           <FeatureCardTwo
             title="Our Features"
             description="Explore the comprehensive technology solutions we offer."
@@ -79,8 +80,8 @@ export default function Page() {
           />
         </div>
       </div>
-      <div id="testimonial" data-section="testimonial" className={"scroll-mt-24 "}>
-        <div className={"mx-auto px-4 md:px-6 "}>
+      <div id="testimonial" data-section="testimonial" className="scroll-mt-24">
+        <div className="mx-auto px-4 md:px-6">
           <TestimonialCardOne
             title="What Our Clients Say"
             description="Hear from our clients about their experiences with our services."
@@ -102,29 +103,27 @@ export default function Page() {
           />
         </div>
       </div>
-      <div id="socialProof" data-section="socialProof" className={"scroll-mt-24 "}>
-        <div className={"mx-auto px-4 md:px-6 "}>
+      <div id="socialProof" data-section="socialProof" className="scroll-mt-24">
+        <div className="mx-auto px-4 md:px-6">
           <SocialProofOne
             title="Trusted By"
             description="Join the ranks of successful businesses using our solutions."
-            logos={["social-logo1", "social-logo2", "social-logo3", "social-logo4", "social-logo5", "social-logo6"].map(id =>
-              assetMap.find(a => a.id === id)?.url ?? "/public/images/placeholder.webp")}
+            logos={assetMap.filter(a => a.id.startsWith('social-logo')).map(a => a.url)}
           />
         </div>
       </div>
-      <div id="contact" data-section="contact" className={"scroll-mt-24 "}>
-        <div className={"mx-auto px-4 md:px-6 "}>
+      <div id="contact" data-section="contact" className="scroll-mt-24">
+        <div className="mx-auto px-4 md:px-6">
           <ContactSplit
             tag="Newsletter"
             title="Stay Connected"
             description="Subscribe for updates on our latest services and offerings."
-            imageSrc={assetMap.find(a => a.id === "contact-image")?.url ?? "/public/images/placeholder.webp"}
-            buttons={[{ text: "Subscribe", href: "subscribe" }]}
+            imageSrc={contactImage?.url ?? "/public/images/placeholder.webp"}
           />
         </div>
       </div>
-      <div id="footer" data-section="footer" className={"scroll-mt-24 "}>
-        <div className={"mx-auto px-4 md:px-6 "}>
+      <div id="footer" data-section="footer" className="scroll-mt-24">
+        <div className="mx-auto px-4 md:px-6">
           <FooterBase
             columns={[{
               title: "Products",
